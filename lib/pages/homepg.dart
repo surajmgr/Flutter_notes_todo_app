@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:todo_app/widgets/BodyElement.dart';
+import 'package:todo_app/widgets/FltAccBtn.dart';
 import 'package:todo_app/widgets/MyDrawer.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,12 +13,21 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   @override
+  void initState() {
+    super.initState();
+    SystemChrome.setEnabledSystemUIMode(
+      SystemUiMode.manual,
+      overlays: [],
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       constraints: const BoxConstraints.expand(),
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/bg3.jpg"),
+          image: AssetImage("assets/bg4.jpg"),
           fit: BoxFit.cover,
         ),
       ),
@@ -52,22 +63,25 @@ class _HomePageState extends State<HomePage> {
             )
           ],
         ),
-        body: const Center(
-          child: BodyElm(),
-        ),
-        drawer: const MyDrawer(),
-        floatingActionButton: Container(
-          height: 50,
-          width: 50,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/plus2.png"),
+        body: Container(
+          alignment: Alignment.center,
+          child: SingleChildScrollView(
+            child: Card(
+              elevation: 0,
+              color: Colors.transparent,
+              child: Container(
+                //alignment: Alignment.topLeft,
+                width: MediaQuery.of(context).size.width * (17 / 20),
+                height: MediaQuery.of(context).size.height - 10,
+                child: const BodyElm(),
+              ),
             ),
           ),
-          child: FloatingActionButton(
-            onPressed: () {},
-            backgroundColor: Colors.transparent,
-          ),
+        ),
+        drawer: const MyDrawer(),
+        floatingActionButton: const SizedBox(
+          height: 80,
+          child: fltAcBtn(),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       ),
