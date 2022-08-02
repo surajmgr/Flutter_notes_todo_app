@@ -27,12 +27,13 @@ class _HomePageState extends State<HomePage> {
       constraints: const BoxConstraints.expand(),
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/bg4.jpg"),
+          image: AssetImage("assets/bg5.jpg"),
           fit: BoxFit.cover,
         ),
       ),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
+        backgroundColor: const Color(0xFF131617),
+        // backgroundColor: Colors.transparent,
         extendBodyBehindAppBar: true,
         appBar: AppBar(
           automaticallyImplyLeading: false,
@@ -54,7 +55,7 @@ class _HomePageState extends State<HomePage> {
               fontWeight: FontWeight.w400,
             ),
           ),
-          backgroundColor: Colors.transparent,
+          backgroundColor: Color(0xFF0B0D0E),
           elevation: 0.0,
           actions: [
             IconButton(
@@ -71,7 +72,7 @@ class _HomePageState extends State<HomePage> {
               color: Colors.transparent,
               child: Container(
                 //alignment: Alignment.topLeft,
-                width: MediaQuery.of(context).size.width * (17 / 20),
+                // width: MediaQuery.of(context).size.width * (17 / 20),
                 height: MediaQuery.of(context).size.height - 10,
                 child: const BodyElm(),
               ),
@@ -79,10 +80,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         drawer: const MyDrawer(),
-        floatingActionButton: const SizedBox(
-          height: 80,
-          child: fltAcBtn(),
-        ),
+        floatingActionButton: const fltAcBtn(),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       ),
     );

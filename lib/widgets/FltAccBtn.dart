@@ -10,12 +10,10 @@ class fltAcBtn extends StatelessWidget {
     return FloatingActionButton(
       onPressed: () {},
       backgroundColor: Color.fromARGB(190, 12, 12, 12),
-      child: const Text(
-        "+",
-        style: TextStyle(
-          fontSize: 45,
-          color: Colors.white,
-          fontWeight: FontWeight.w300,
+      child: const Center(
+        child: Icon(
+          Icons.add,
+          size: 35.0,
         ),
       ),
     );

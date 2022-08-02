@@ -80,6 +80,14 @@ flutter:
       - family: Edu VIC
         fonts:
           - asset: fonts/EduVIC.ttf
+      - family: Catamaran
+        fonts:
+          - asset: fonts/Catamaran-VariableFont_wght.ttf
+      - family: Raleway
+        fonts:
+          - asset: fonts/Raleway-VariableFont_wght.ttf
+          - asset: fonts/Raleway-Italic-VariableFont_wght.ttf
+            style: italic
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf
