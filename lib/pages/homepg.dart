@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:todo_app/widgets/AppbarText.dart';
 import 'package:todo_app/widgets/BodyElement.dart';
 import 'package:todo_app/widgets/FltAccBtn.dart';
 import 'package:todo_app/widgets/MyDrawer.dart';
@@ -23,6 +24,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    var txt = "One Day List";
     return Container(
       constraints: const BoxConstraints.expand(),
       decoration: const BoxDecoration(
@@ -47,15 +49,8 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          title: const Text(
-            "One Day List",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 18,
-              fontWeight: FontWeight.w400,
-            ),
-          ),
-          backgroundColor: Color(0xFF0B0D0E),
+          title: AppBarTxt(txt: txt),
+          backgroundColor: const Color(0xFF0B0D0E),
           elevation: 0.0,
           actions: [
             IconButton(
@@ -66,21 +61,19 @@ class _HomePageState extends State<HomePage> {
         ),
         body: Container(
           alignment: Alignment.center,
-          child: SingleChildScrollView(
-            child: Card(
-              elevation: 0,
-              color: Colors.transparent,
-              child: Container(
-                //alignment: Alignment.topLeft,
-                // width: MediaQuery.of(context).size.width * (17 / 20),
-                height: MediaQuery.of(context).size.height - 10,
-                child: const BodyElm(),
-              ),
+          child: Card(
+            elevation: 0,
+            color: Colors.transparent,
+            child: Container(
+              //alignment: Alignment.topLeft,
+              // width: MediaQuery.of(context).size.width * (17 / 20),
+              height: MediaQuery.of(context).size.height - 10,
+              child: const BodyElm(),
             ),
           ),
         ),
         drawer: const MyDrawer(),
-        floatingActionButton: const fltAcBtn(),
+        floatingActionButton: fltAcBtn(),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       ),
     );

@@ -1,13 +1,27 @@
+// import 'dart:html';
 import 'package:flutter/material.dart';
+import 'package:todo_app/models/globalval.dart';
+import 'package:todo_app/pages/editfld.dart';
+import 'package:todo_app/widgets/FltAccBtn.dart';
 
 class BodyElm extends StatefulWidget {
   const BodyElm({Key? key}) : super(key: key);
-
   @override
   State<BodyElm> createState() => _BodyElmState();
 }
 
 class _BodyElmState extends State<BodyElm> {
+  refresh() {
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    // fltAcBtn(notifyBody: refresh());
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -44,112 +58,93 @@ class _BodyElmState extends State<BodyElm> {
                   ],
                 ),
               ),
-              SingleChildScrollView(
-                child: Center(
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(40, 28, 40, 0),
-                        child: Card(
-                          elevation: 5,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(13),
-                          ),
-                          color: Colors.white12,
-                          child: Container(
-                            // height: 300,
-                            // width: 300,
-                            child: const ListTile(
-                              // secondary: const Icon(Icons.beach_access),
-                              title: Text(
-                                "Game",
-                                style: TextStyle(
-                                  // decoration: TextDecoration.underline,
-                                  // color: Colors.amberAccent,
-                                  fontFamily: 'EDU VIC',
-                                  fontSize: 28,
-                                  fontWeight: FontWeight.w400,
-                                ),
+              Center(
+                child: Column(
+                  children: [
+                    ListView.builder(
+                      itemBuilder: (context, index) {
+                        return cardList[index];
+                      },
+                      itemCount: cardList.length,
+                      shrinkWrap: true,
+                      // padding: EdgeInsets.all(5),
+                      scrollDirection: Axis.vertical,
+                      primary: false,
+                    ),
+                    // const MainCard(),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(40, 15, 40, 0),
+                      child: Card(
+                        elevation: 5,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(13),
+                        ),
+                        color: Colors.white12,
+                        child: Container(
+                          // height: 65,
+                          // width: 300,
+                          child: ListTile(
+                            title: const Text(
+                              "Sports",
+                              style: TextStyle(
+                                fontFamily: 'Edu VIC',
+                                fontSize: 25,
                               ),
-                              subtitle: Text(
-                                "A game is a structured form of play, usually undertaken for entertainment or fun, and sometimes used as an educational tool. Games are different from work, which is usually carried out for remuneration, and from art, which is more often an expression of aesthetic or ideological elements.\n",
-                                style: TextStyle(
-                                  color: Colors.white70,
-                                  fontFamily: 'Edu VIC',
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w300,
-                                ),
+                            ),
+                            subtitle: const Text(
+                              "A game is a structured form of play...\n",
+                              style: TextStyle(
+                                color: Colors.white70,
+                                fontFamily: 'Edu VIC',
+                                fontSize: 18,
+                                fontWeight: FontWeight.w300,
+                              ),
+                            ),
+                            onTap: () {
+                              setState(() {
+                                cardList.add(MainCard(
+                                    heading: headingCard[0],
+                                    bodyV: bodyCard[0]));
+                                print(cardList.length);
+                              });
+                            },
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(40, 15, 40, 0),
+                      child: Card(
+                        elevation: 5,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(13),
+                        ),
+                        color: Colors.white12,
+                        child: Container(
+                          // height: 65,
+                          // width: 300,
+                          child: const ListTile(
+                            title: Text(
+                              "Books",
+                              style: TextStyle(
+                                fontFamily: 'Edu VIC',
+                                fontSize: 25,
+                              ),
+                            ),
+                            subtitle: Text(
+                              "A game is a structured form of play...\n",
+                              style: TextStyle(
+                                color: Colors.white70,
+                                fontFamily: 'Edu VIC',
+                                fontSize: 18,
+                                fontWeight: FontWeight.w300,
                               ),
                             ),
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(40, 15, 40, 0),
-                        child: Card(
-                          elevation: 5,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(13),
-                          ),
-                          color: Colors.white12,
-                          child: Container(
-                            // height: 65,
-                            // width: 300,
-                            child: const ListTile(
-                              title: Text(
-                                "Sports",
-                                style: TextStyle(
-                                  fontFamily: 'Edu VIC',
-                                  fontSize: 25,
-                                ),
-                              ),
-                              subtitle: Text(
-                                "A game is a structured form of play...\n",
-                                style: TextStyle(
-                                  color: Colors.white70,
-                                  fontFamily: 'Edu VIC',
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w300,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(40, 15, 40, 0),
-                        child: Card(
-                          elevation: 5,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(13),
-                          ),
-                          color: Colors.white12,
-                          child: Container(
-                            // height: 65,
-                            // width: 300,
-                            child: const ListTile(
-                              title: Text(
-                                "Books",
-                                style: TextStyle(
-                                  fontFamily: 'Edu VIC',
-                                  fontSize: 25,
-                                ),
-                              ),
-                              subtitle: Text(
-                                "A game is a structured form of play...\n",
-                                style: TextStyle(
-                                  color: Colors.white70,
-                                  fontFamily: 'Edu VIC',
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w300,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ],
@@ -158,7 +153,7 @@ class _BodyElmState extends State<BodyElm> {
         const Padding(
           padding: EdgeInsets.all(10.0),
           child: Text(
-            "End of the list.",
+            "End of the List!",
             textAlign: TextAlign.center,
             style: TextStyle(
               color: Colors.white,
@@ -169,6 +164,63 @@ class _BodyElmState extends State<BodyElm> {
           ),
         ),
       ],
+    );
+  }
+}
+
+class MainCard extends StatelessWidget {
+  const MainCard({
+    Key? key,
+    required this.heading,
+    required this.bodyV,
+  }) : super(key: key);
+
+  final String heading;
+  final String bodyV;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.fromLTRB(40, 28, 40, 0),
+      child: Card(
+        elevation: 5,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(13),
+        ),
+        color: Colors.white12,
+        child: Container(
+          // height: 300,
+          // width: 300,
+          child: ListTile(
+            // secondary: const Icon(Icons.beach_access),
+            title: Text(
+              heading,
+              style: const TextStyle(
+                // decoration: TextDecoration.underline,
+                // color: Colors.amberAccent,
+                fontFamily: 'EDU VIC',
+                fontSize: 28,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+            subtitle: Text(
+              "$bodyV\n",
+              style: const TextStyle(
+                color: Colors.white70,
+                fontFamily: 'Edu VIC',
+                fontSize: 20,
+                fontWeight: FontWeight.w300,
+              ),
+            ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const EditField()),
+              );
+            },
+          ),
+        ),
+      ),
     );
   }
 }
