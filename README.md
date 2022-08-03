@@ -6,6 +6,6 @@ My first self-project in FLutter.
 <a>https://todo-f.netlify.app/#/</a>
 
 ### Error:
-Problem in in-build X-code. <br/>
+Problem in in-built X-code settings. <br/>
 ***Suspects: Cocoapods, Podfile in Ios*** <br/>
 ***Result: Couldn't build a mac os app, and have to run through Android or Web***
