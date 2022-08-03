@@ -1,7 +1,11 @@
-# todo_app
+# Notes-todo_app
 
-My first independent Flutter project.
+My first self-project in FLutter.
 
-## Getting Started
+### Netlify Link:
+<a>https://todo-f.netlify.app/#/</a>
 
-This project's main function is to create a simle notes application.
+### Error:
+Problem in in-build X-code. <br/>
+***Suspects: Cocoapods, Podfile in Ios*** <br/>
+***Result: Couldn't build a mac os app, and have to run through Android or Web***
